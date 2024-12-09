@@ -21,6 +21,20 @@ header nav {
   font-family: var(--body-font-family);
 }
 
+header .header .header-topbar .header-markets {
+    background-color: #efefef;
+    padding: 10px 35px;
+}
+.header-markets {
+    padding: 3px 0;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    font-size: 14px;
+}
+.icon-line {
+    padding-left: 15px;
+}
 header nav[aria-expanded='true'] {
   grid-template:
     'hamburger brand' var(--nav-height)
@@ -180,7 +194,10 @@ header nav .nav-sections ul > li > ul {
 header nav .nav-sections ul > li > ul > li {
   font-weight: 400;
 }
-
+.header-topbar.reduce-header-size {
+    position: absolute;
+    top: 0;
+}
 @media (width >= 900px) {
   header nav .nav-sections {
     display: block;
@@ -193,7 +210,7 @@ header nav .nav-sections ul > li > ul > li {
   }
 
   header nav .nav-sections .nav-drop {
-    position: relative;
+    /* position: relative; */
     padding-right: 16px;
     cursor: pointer;
   }
@@ -201,9 +218,9 @@ header nav .nav-sections ul > li > ul > li {
   header nav .nav-sections .nav-drop::after {
     content: '';
     display: inline-block;
-    position: absolute;
-    top: 0.5em;
-    right: 2px;
+    position: relative;
+    top: -3px;
+    left: 5px;
     transform: rotate(135deg);
     width: 6px;
     height: 6px;
@@ -214,7 +231,6 @@ header nav .nav-sections ul > li > ul > li {
 
   header nav .nav-sections .nav-drop[aria-expanded='true']::after {
     top: unset;
-    bottom: 0.5em;
     transform: rotate(315deg);
   }
 
@@ -222,11 +238,8 @@ header nav .nav-sections ul > li > ul > li {
     display: flex;
     gap: 24px;
     margin: 0;
-  }
-
-  header nav .nav-sections .default-content-wrapper > ul > li {
-    flex: 0 1 auto;
-    position: relative;
+    align-items: center;
+    justify-content: center;
   }
 
   header nav .nav-sections .default-content-wrapper > ul > li > ul {
@@ -235,11 +248,12 @@ header nav .nav-sections ul > li > ul > li {
   }
 
   header nav .nav-sections .default-content-wrapper > ul > li[aria-expanded='true'] > ul {
-    display: block;
+    display: flex;
+    justify-content: space-evenly;
     position: absolute;
-    left: -24px;
-    width: 200px;
-    top: 150%;
+    left: 0;
+    width: 100%;
+    top: 100%;
     padding: 16px;
     background-color: var(--light-color);
     white-space: initial;
@@ -266,3 +280,10 @@ header nav .nav-sections ul > li > ul > li {
 header nav .nav-tools {
   grid-area: tools;
 }
+header nav .nav-tools p {
+    display: flex;
+    align-items: center;
+  }
+  header nav .nav-tools p span {
+    padding-left: 20px;
+  }

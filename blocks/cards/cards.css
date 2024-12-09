@@ -1,27 +1,107 @@
-.cards > ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(257px, 1fr));
-  grid-gap: 24px;
+.carousel-main {
+    display: flex;
+    overflow: hidden;
+    padding: 0;
+    list-style: none;
+    gap: 10px;
 }
 
-.cards > ul > li {
-  border: 1px solid #dadada;
-  background-color: var(--background-color);
+.carousel-item {
+    flex: 0 0 20%;
+    /* Display 5 items */
+    display: none;
+    box-sizing: border-box;
+}
+
+.carousel-cards {
+    position: relative;
+    width: 100%;
+}
+
+.carousel-dots {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.cards .carousel-dots button:hover,
+button:focus {
+    background-color: #131313;
+}
+
+
+.carousel-buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.carousel-prev,
+.carousel-next {
+    outline: none;
+    background: #8f8f8f;
+    filter: brightness(100%);
+    border-radius: 10px;
+    box-shadow: none;
+    cursor: pointer;
+    display: block;
+    height: 15px;
+    padding: 0;
+    text-indent: -99999px;
+    transition: 0.5s;
+    width: 15px;
+}
+
+.carousel-prev {
+    position: relative;
+}
+
+.carousel-next {
+    position: relative;
+}
+
+.cards>ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(257px, 1fr));
+    grid-gap: 24px;
 }
 
 .cards .cards-card-body {
-  margin: 16px;
+    margin: 16px;
+}
+
+.cards .cards-card-body p a {
+    background: var(--link-color);
+    color: #fff;
+    border-radius: 20px;
+    padding: 5px 15px;
+    text-decoration: none;
+}
+
+.cards .cards-card-body p span {
+    position: relative;
+    left: 15px;
+    top: 5px;
 }
 
 .cards .cards-card-image {
-  line-height: 0;
+    line-height: 0;
 }
 
-.cards > ul > li img {
-  width: 100%;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
+.cards>ul>li img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+}
+
+@media screen and (max-width: 768px) {
+    .carousel-cards ul {
+        width: 100%;
+        display: block;
+        margin-bottom: 20px;
+    }
 }

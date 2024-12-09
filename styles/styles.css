@@ -83,6 +83,9 @@ body {
 body.appear {
   display: block;
 }
+main section{
+    background-color: #efefef;
+}
 
 header {
   height: var(--nav-height);

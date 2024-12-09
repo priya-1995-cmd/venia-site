@@ -7,14 +7,52 @@ footer .footer > div {
   margin: auto;
   max-width: 1200px;
   padding: 40px 24px 24px;
+  display: flex;
+  justify-content: space-between;
+}
+footer .footer > div .section{
+    min-width: 180px;
+    width: 100%;
+}
+footer .footer > div ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+footer .footer > div ul li {
+    padding-top: 10px;
+}
+footer .footer > div ul li:nth-child(1) {
+    font-weight: bold;
 }
 
 footer .footer p {
   margin: 0;
 }
+.bottom-footer .copyright .default-content-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 20px;
+}
+.icon-venialogo {
+    width: 100%;
+}
 
 @media (width >= 900px) {
   footer .footer > div {
     padding: 40px 32px 24px;
+    gap: 20px;
+    
   }
+}
+@media (width <= 1024px) {
+    footer .footer > div {
+        flex-direction: column;
+        display: flex;
+    }
+    .bottom-footer .copyright .default-content-wrapper {
+        flex-direction: column;
+        display: flex;
+    }
 }
