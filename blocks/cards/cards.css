@@ -13,6 +13,13 @@
     box-sizing: border-box;
 }
 
+#top-sellers {
+    text-align: center;
+    font-size: 3.75rem;
+    line-height: 1.25;
+    color: #131313;
+}
+
 .carousel-cards {
     position: relative;
     width: 100%;
@@ -25,7 +32,8 @@
     gap: 20px;
 }
 
-.cards .carousel-dots button:hover, button:focus {
+.cards .carousel-dots button:hover,
+button:focus {
     background-color: #131313;
 }
 

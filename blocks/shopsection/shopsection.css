@@ -4,7 +4,8 @@
     gap: 20px;
     position: relative;
 }
-.shopsection-wrapper .shopsection>div>div h2 { 
+
+.shopsection-wrapper .shopsection>div>div h2 {
     position: absolute;
     top: 50%;
     transform: translate(50%, -50%);

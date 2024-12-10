@@ -1,77 +1,88 @@
-.columns > div {
-  display: flex;
-  flex-direction: column;
+.columns>div {
+    display: flex;
+    flex-direction: column;
 }
 
 .columns img {
-  width: 100%;
+    width: 100%;
 }
-.columns-wrapper .columns >div >div {
+
+.columns-wrapper .columns>div>div {
     margin-top: 20px;
- text-align: center;
- color: #1c1918;
+    text-align: center;
+    color: #1c1918;
 }
-.columns-wrapper .columns >div >div h2 {
+
+.columns-wrapper .columns>div>div h2 {
     font-size: 3.75rem;
     line-height: 1.25;
 }
-.columns-wrapper .columns >div >div h3 {
+
+.columns-wrapper .columns>div>div h3 {
     font-size: 3rem;
     line-height: 1.25;
 }
-.columns-wrapper .columns >div >div p {
+
+.columns-wrapper .columns>div>div p {
     font-size: 16px;
 }
-.columns-wrapper .columns >div >div p a {
+
+.columns-wrapper .columns>div>div p a {
     font-size: 16px;
     color: #1c1918;
     text-decoration: underline;
 }
-.columns-wrapper .columns >div .columns-img-col {
+
+.columns-wrapper .columns>div .columns-img-col {
     position: relative;
     flex: 2;
 }
-.columns-wrapper .columns >div >div:nth-child(2) {
+
+.columns-wrapper .columns>div>div:nth-child(2) {
     position: relative;
     background-color: #1c1918;
     color: #ffffff;
     flex: 1;
     right: 30px;
 }
+
 #vacations-meet {
     padding-top: 80px;
 }
-.columns > div > div {
-  order: 1;
+
+.columns>div>div {
+    order: 1;
 }
-.columns >div >div .button-container a {
+
+.columns>div>div .button-container a {
     background-color: transparent;
     text-decoration: underline;
     color: #ffffff;
 }
-.columns > div > .columns-img-col {
-  order: 0;
+
+.columns>div>.columns-img-col {
+    order: 0;
 }
 
-.columns > div > .columns-img-col img {
-  display: block;
+.columns>div>.columns-img-col img {
+    display: block;
 }
 
-@media (width >= 900px) {
-  .columns > div {
-    align-items: center;
-    flex-direction: unset;
-    gap: 24px;
-  }
+@media (width >=900px) {
+    .columns>div {
+        align-items: center;
+        flex-direction: unset;
+        gap: 24px;
+    }
 
-  .columns > div > div {
-    flex: 1;
-    order: unset;
-  }
+    .columns>div>div {
+        flex: 1;
+        order: unset;
+    }
 }
 
 @media (width < 768px) {
-    .columns-wrapper .columns >div >div:nth-child(2) {
+    .columns-wrapper .columns>div>div:nth-child(2) {
         right: 0;
         bottom: 20px;
     }
