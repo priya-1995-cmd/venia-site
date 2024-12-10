@@ -35,11 +35,11 @@ export default function decorate(block) {
 
   const prevButton = document.createElement("button");
   prevButton.className = "carousel-prev";
-  prevButton.textContent = "‹";
+  prevButton.textContent = "";
 
   const nextButton = document.createElement("button");
   nextButton.className = "carousel-next";
-  nextButton.textContent = "›";
+  nextButton.textContent = "";
 
   carouselCards.append(ul);
   carouselDots.append(prevButton, nextButton);
