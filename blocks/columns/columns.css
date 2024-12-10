@@ -22,15 +22,18 @@
     margin: 0;
 }
 .columns-wrapper .columns>div>div h3 {
+    font-family: Arial, sans-serif;
     font-size: 3rem;
     line-height: 1.25;
 }
 
 .columns-wrapper .columns>div>div p {
+    font-family: Arial, sans-serif;
     font-size: 16px;
 }
 
 .columns-wrapper .columns>div>div p a {
+    font-family: Arial, sans-serif;
     font-size: 16px;
     color: #1c1918;
     text-decoration: underline;

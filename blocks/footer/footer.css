@@ -21,7 +21,10 @@ footer .footer>div ul {
     margin: 0;
     padding: 0;
 }
-
+footer .footer .bottom-footer .copyright {
+    border-top: 1px solid #1c1918;
+    padding-top: 20px;
+}
 footer .footer>div ul li {
     padding-top: 10px;
 }
