@@ -25,11 +25,13 @@
     gap: 20px;
 }
 
-.cards .carousel-dots button:hover,
-button:focus {
+.cards .carousel-dots button:hover, button:focus {
     background-color: #131313;
 }
 
+.cards .carousel-dots .active {
+    background-color: #131313;
+}
 
 .carousel-buttons {
     display: flex;

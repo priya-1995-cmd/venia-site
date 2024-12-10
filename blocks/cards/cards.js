@@ -1,7 +1,7 @@
 import { createOptimizedPicture } from "../../scripts/aem.js";
 
 export default function decorate(block) {
-  /* change to ul, li */
+  /* Convert block children to carousel items */
   const ul = document.createElement("ul");
   ul.className = "carousel-main";
 
@@ -35,45 +35,88 @@ export default function decorate(block) {
 
   const prevButton = document.createElement("button");
   prevButton.className = "carousel-prev";
-  prevButton.textContent = "";
+  prevButton.textContent = "‹";
 
   const nextButton = document.createElement("button");
   nextButton.className = "carousel-next";
-  nextButton.textContent = "";
+  nextButton.textContent = "›";
 
   carouselCards.append(ul);
   carouselDots.append(prevButton, nextButton);
 
   block.append(carouselCards, carouselDots);
 
-  // Carousel functionality
   let currentIndex = 0;
   const items = ul.querySelectorAll(".carousel-item");
   const itemsPerPage = 5;
+  const slideInterval = 5000;
+  let autoSlideInterval;
 
   const updateCarousel = () => {
     items.forEach((item, index) => {
       if (index >= currentIndex && index < currentIndex + itemsPerPage) {
         item.style.display = "block";
+        item.style.opacity = "1";
       } else {
-        item.style.display = "none";
+        item.style.opacity = "0";
+        setTimeout(() => (item.style.display = "none"), 300);
       }
     });
+
+    // Update active state of navigation buttons
+    if (currentIndex === 0) {
+      prevButton.classList.add("active");
+    } else {
+      prevButton.classList.remove("active");
+    }
+
+    if (currentIndex + itemsPerPage >= items.length) {
+      nextButton.classList.add("active");
+    } else {
+      nextButton.classList.remove("active");
+    }
+  };
+
+  const slideNext = () => {
+    if (currentIndex + itemsPerPage < items.length) {
+      currentIndex += itemsPerPage;
+    } else {
+      currentIndex = 0; // Loop back to start
+    }
+    updateCarousel();
+  };
+
+  const slidePrev = () => {
+    if (currentIndex > 0) {
+      currentIndex -= itemsPerPage;
+    } else {
+      currentIndex = Math.max(0, items.length - itemsPerPage);
+    }
+    updateCarousel();
+  };
+
+  const startAutoSlide = () => {
+    stopAutoSlide();
+    autoSlideInterval = setInterval(slideNext, slideInterval);
+  };
+
+  const stopAutoSlide = () => {
+    clearInterval(autoSlideInterval);
   };
 
   prevButton.addEventListener("click", () => {
-    currentIndex = Math.max(0, currentIndex - itemsPerPage);
-    updateCarousel();
+    slidePrev();
+    startAutoSlide();
   });
 
   nextButton.addEventListener("click", () => {
-    currentIndex = Math.min(
-      items.length - itemsPerPage,
-      currentIndex + itemsPerPage
-    );
-    updateCarousel();
+    slideNext();
+    startAutoSlide();
   });
 
-  // Initialize carousel
+  block.addEventListener("mouseover", stopAutoSlide);
+  block.addEventListener("mouseout", startAutoSlide);
+
   updateCarousel();
+  startAutoSlide();
 }

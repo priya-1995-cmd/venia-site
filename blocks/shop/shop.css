@@ -55,4 +55,17 @@
     .shop-wrapper .shop {
         flex-direction: column;
     }
+    .shop >div>div {
+        position: relative;
+    }
+    .shop >div>div h2 {
+        position: absolute;
+        top: 10%;
+        left: 10%;
+    }
+    .shop >div>div p:nth-child(3) {
+        position: absolute;
+        top: 33%;
+        left: 10%;
+    }
 }
