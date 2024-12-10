@@ -58,6 +58,26 @@ function toggleMenu(nav, navSections, forceExpanded = null) {
  * loads and decorates the header, mainly the nav
  * @param {Element} block The header block element
  */
+
+function mobileNav() {
+  const navItems = document.getElementsByClassName("nav-drop");
+  function setClass(els, className, fnName) {
+    for (let i = 0; i < els.length; i += 1) {
+      els[i].classList[fnName](className);
+    }
+  }
+  for (let i = 0; i < navItems.length; i += 1) {
+    navItems[i].onclick = function () {
+      const setClasses = !this.classList.contains("navActive");
+      setClass(navItems, "navActive", "remove");
+
+      if (setClasses) {
+        this.classList.toggle("navActive");
+      }
+    };
+  }
+}
+
 export default async function decorate(block) {
   // load nav as fragment
   const navMeta = getMetadata("nav");
@@ -129,13 +149,15 @@ export default async function decorate(block) {
   topBar.innerHTML =
     '<div class="header-markets"><span>Main Website Store - Default Store View</span><span class="icon icon-line">|</span><span class="header-chevron-down">$ USD</span></div>';
   block.append(navWrapper);
+
+  mobileNav();
 }
 
 window.onscroll = function () {
   var header = document.querySelector(".header-topbar");
   if (window.pageYOffset > 20) {
-    header.classList.add("reduce-header-size");
+    header?.classList.add("reduce-header-size");
   } else {
-    header.classList.remove("reduce-header-size");
+    header?.classList.remove("reduce-header-size");
   }
 };

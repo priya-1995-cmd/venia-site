@@ -168,3 +168,12 @@
   .form .toggle-wrapper input:checked + .slider::before {
     transform: translateX(24px);
   }
+  .form-wrapper .form .text-wrapper {
+    display: flex;
+    position: relative;
+    top: 20px;
+  }
+  #form-subscribe-label {
+    position: absolute;
+    right: 10px;
+  }

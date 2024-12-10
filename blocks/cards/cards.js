@@ -42,15 +42,36 @@ export default function decorate(block) {
   nextButton.textContent = "";
 
   carouselCards.append(ul);
-  carouselDots.append(prevButton, nextButton);
-
-  block.append(carouselCards, carouselDots);
+  block.append(carouselCards, carouselDots, prevButton, nextButton);
 
   let currentIndex = 0;
   const items = ul.querySelectorAll(".carousel-item");
-  const itemsPerPage = 5;
+  let itemsPerPage = window.innerWidth >= 900 ? 5 : 2;
   const slideInterval = 5000;
   let autoSlideInterval;
+
+  const updateItemsPerPage = () => {
+    itemsPerPage = window.innerWidth >= 900 ? 5 : 2;
+    updateDots();
+    updateCarousel();
+  };
+
+  const updateDots = () => {
+    carouselDots.innerHTML = ""; // Clear existing dots
+    const pages = Math.ceil(items.length / itemsPerPage);
+    for (let i = 0; i < pages; i++) {
+      const dot = document.createElement("button");
+      dot.className = "carousel-dot";
+      if (i === Math.floor(currentIndex / itemsPerPage))
+        dot.classList.add("active");
+      dot.addEventListener("click", () => {
+        currentIndex = i * itemsPerPage;
+        updateCarousel();
+        startAutoSlide();
+      });
+      carouselDots.append(dot);
+    }
+  };
 
   const updateCarousel = () => {
     items.forEach((item, index) => {
@@ -63,18 +84,15 @@ export default function decorate(block) {
       }
     });
 
-    // Update active state of navigation buttons
-    if (currentIndex === 0) {
-      prevButton.classList.add("active");
-    } else {
-      prevButton.classList.remove("active");
-    }
+    // Update navigation button states
+    prevButton.classList.toggle("disabled", currentIndex === 0);
+    nextButton.classList.toggle(
+      "disabled",
+      currentIndex + itemsPerPage >= items.length
+    );
 
-    if (currentIndex + itemsPerPage >= items.length) {
-      nextButton.classList.add("active");
-    } else {
-      nextButton.classList.remove("active");
-    }
+    // Update dots
+    updateDots();
   };
 
   const slideNext = () => {
@@ -117,6 +135,10 @@ export default function decorate(block) {
   block.addEventListener("mouseover", stopAutoSlide);
   block.addEventListener("mouseout", startAutoSlide);
 
-  updateCarousel();
+  window.addEventListener("resize", () => {
+    updateItemsPerPage();
+  });
+
+  updateItemsPerPage();
   startAutoSlide();
 }

@@ -292,3 +292,35 @@ header nav .nav-tools p {
 header nav .nav-tools p span {
     padding-left: 20px;
 }
+@media (width <=768px) {
+    ul .nav-drop ul {
+        display: none;
+    }
+    .nav-drop {
+        position: relative;
+        margin: 20px 0;
+    }
+    .nav-drop::after {
+        content: '';
+        display: inline-block;
+        position: absolute;
+        top: 10px;
+        right: 0;
+        transform: rotate(135deg);
+        width: 6px;
+        height: 6px;
+        border: 2px solid currentcolor;
+        border-radius: 0 1px 0 0;
+        border-width: 2px 2px 0 0;
+        
+    }
+    .nav-drop.navActive::after {
+        transform: rotate(-45deg);
+    }
+  
+    ul .nav-drop.navActive ul {
+        display: block;
+        padding-left: 30px;
+        padding-top: 20px;
+    }
+}

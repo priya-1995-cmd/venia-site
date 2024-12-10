@@ -49,26 +49,16 @@ button:focus {
 
 .carousel-prev,
 .carousel-next {
-    outline: none;
-    background: #8f8f8f;
-    filter: brightness(100%);
-    border-radius: 10px;
-    box-shadow: none;
-    cursor: pointer;
-    display: block;
+    display: none;
+}
+
+.carousel-dots button {
+    width: 15px;
     height: 15px;
     padding: 0;
-    text-indent: -99999px;
-    transition: 0.5s;
-    width: 15px;
-}
-
-.carousel-prev {
-    position: relative;
-}
-
-.carousel-next {
-    position: relative;
+    border-radius: 50%;
+    background-color: #dadada;
+    transition: background-color 0.3s ease;
 }
 
 .cards>ul {
@@ -108,10 +98,19 @@ button:focus {
     object-fit: cover;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 900px) {
     .carousel-cards ul {
-        width: 100%;
-        display: block;
+        display: flex;
+        gap: 20px;
+        align-items: center;
+        justify-content: center;
         margin-bottom: 20px;
+        font-size: 12px;
+    }
+    .carousel-cards ul li {
+        min-width: 41vw;
+    }
+    .carousel-cards ul li img {
+        width: 100%;
     }
 }

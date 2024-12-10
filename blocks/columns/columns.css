@@ -16,8 +16,11 @@
 .columns-wrapper .columns>div>div h2 {
     font-size: 3.75rem;
     line-height: 1.25;
+    font-weight: 400;
 }
-
+#signature-heels {
+    margin: 0;
+}
 .columns-wrapper .columns>div>div h3 {
     font-size: 3rem;
     line-height: 1.25;
