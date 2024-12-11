@@ -9,11 +9,12 @@ footer .footer>div {
     padding: 40px 24px 24px;
     display: flex;
     justify-content: space-between;
+    flex-wrap: nowrap;
 }
 
 footer .footer>div .section {
-    min-width: 180px;
     width: 100%;
+    flex: 1;
 }
 
 footer .footer>div ul {
@@ -21,10 +22,7 @@ footer .footer>div ul {
     margin: 0;
     padding: 0;
 }
-footer .footer .bottom-footer .copyright {
-    border-top: 1px solid #1c1918;
-    padding-top: 20px;
-}
+
 footer .footer>div ul li {
     padding-top: 10px;
 }
@@ -35,6 +33,11 @@ footer .footer>div ul li:nth-child(1) {
 
 footer .footer p {
     margin: 0;
+}
+
+footer .footer .bottom-footer {
+    border-top: 1px solid #4b5563;
+    margin: 25px;
 }
 
 .bottom-footer .copyright .default-content-wrapper {
@@ -58,12 +61,24 @@ footer .footer p {
 
 @media (width <=1024px) {
     footer .footer>div {
-        flex-direction: column;
-        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
     }
 
-    .bottom-footer .copyright .default-content-wrapper {
-        flex-direction: column;
-        display: flex;
+    footer .footer>div .section {
+        flex: 0 0 48%;
     }
+
+    footer .footer .bottom-footer {
+        justify-content: center;
+    }
+
+    footer .footer .bottom-footer .copyright .default-content-wrapper {
+        flex-direction: column-reverse;
+    }
+
+    footer .footer>div .copyright {
+        flex: 0 0 100%;
+    }
+
 }

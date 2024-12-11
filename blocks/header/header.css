@@ -297,6 +297,9 @@ header nav .nav-tools p span {
     ul .nav-drop ul {
         display: none;
     }
+    .nav-wrapper nav .nav-tools>div >p {
+        font-size: 14px;
+    }
     .nav-drop {
         position: relative;
         margin: 20px 0;
