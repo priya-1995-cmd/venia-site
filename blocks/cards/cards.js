@@ -1,7 +1,7 @@
 import { createOptimizedPicture } from '../../scripts/aem.js';
 
 export default function decorate(block) {
-  /* Convert block children to carousel items */
+  /* Converting block children to carousel items */
   const ul = document.createElement('ul');
   ul.className = 'carousel-main';
 
@@ -61,14 +61,12 @@ export default function decorate(block) {
       }
     });
 
-    // Update navigation button states
     prevButton.classList.toggle('disabled', currentIndex === 0);
     nextButton.classList.toggle(
       'disabled',
       currentIndex + itemsPerPage >= items.length,
     );
 
-    // Update dots
     updateDots();
   };
 
@@ -79,7 +77,7 @@ export default function decorate(block) {
     if (currentIndex + itemsPerPage < items.length) {
       currentIndex += itemsPerPage;
     } else {
-      currentIndex = 0; // Loop back to start
+      currentIndex = 0;
     }
     updateCarousel();
   };
@@ -89,7 +87,7 @@ export default function decorate(block) {
   };
 
   const updateDots = () => {
-    carouselDots.innerHTML = ''; // Clear existing dots
+    carouselDots.innerHTML = '';
     const pages = Math.ceil(items.length / itemsPerPage);
     for (let i = 0; i < pages; i += 1) {
       const dot = document.createElement('button');
